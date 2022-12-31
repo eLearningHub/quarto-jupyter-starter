@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-    
+
+      - name: requirements
+        run: make requirements
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
