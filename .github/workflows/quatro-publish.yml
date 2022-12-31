@@ -22,9 +22,11 @@ jobs:
           # uncomment below and fill to pin a version
           # version: 0.9.600
 
-      - name: Publish to GitHub Pages (and render)
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _output
